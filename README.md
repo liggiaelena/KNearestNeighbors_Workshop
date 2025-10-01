@@ -65,6 +65,6 @@ The workshop is split across two sessions (two hours total), with homework in be
 
 ---
 
-## ✍️ Student Information
-- **Name:** *Your Name Here*  
-- **Student ID:** *Your ID Here*  
+## ✍️ Instructor Information
+- **Name:** *David Espinosa*  
+- **Release:** *October 2025*  
