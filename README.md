@@ -63,6 +63,15 @@ The workshop is split across two sessions (two hours total), with homework in be
 - `README.md`: This file, including your name, student ID, and a brief summary of your work.  
 - A PDF file with your name, student ID, and the URL to your remote repository.  
 
+
+---
+## 👥 Team Members & Contributions
+
+| Name | Student ID | Contribution |
+|------|-----------|-------------|
+| Liggia Elena Taboada Cruz | 9085905 | Data Acquisition, Cleaning & Preprocessing, Feature Engineering |
+| Emmanuel Ihejiamaizu | 9080005 | Model Training (KNN hyperparameter tuning, best k selection) |
+| Chao-Chung Liu | 9067679 | Evaluation (confusion matrix, classification report, per-class error) |
 ---
 
 ## ✍️ Instructor Information
