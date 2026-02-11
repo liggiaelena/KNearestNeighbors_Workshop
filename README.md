@@ -53,6 +53,33 @@ Our project follows a modular **ML Pipeline Architecture**:
 
 ---
 
-## ✍️ Instructor Information
-- **Name:** *David Espinosa*  
-- **Release:** *October 2025*  
+## 🛠️ Getting Started & Data Setup
+
+
+Follow these steps to set up the project environment and prepare the dataset for analysis:
+
+1. **Clone the Repository:**
+   ```bash
+   git clone [https://github.com/liggiaelena/KNearestNeighbors_Workshop.git](https://github.com/liggiaelena/KNearestNeighbors_Workshop.git)
+   cd KNearestNeighbors_Workshop
+   ```
+2.**Create the Environment:**
+   ```bash
+   # Create a virtual environment
+   python -m venv venv
+   ```
+   # Activate on Windows:
+   venv\Scripts\activate
+
+   # Activate on macOS/Linux:
+   source venv/bin/activate
+   ```
+3.**Install all required libraries from the requirements file:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+4.** Prepare Dataset**
+   ```bash
+   # Run this script to generate the .npz data files
+   python extract_embeddings_dermamnist.py
+   ```
