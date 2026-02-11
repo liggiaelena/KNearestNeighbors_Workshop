@@ -1,77 +1,56 @@
-# 🧑‍💻 K-Nearest Neighbors (KNN) Workshop
+# 🩺 Medical Image Classification: Skin Lesion Diagnosis using KNN & CNN Embeddings
+**MedMNIST Team Project - Foundations of Machine Learning Frameworks**
 
-## 📘 Workshop Summary
-This repository contains the materials and student solutions for the **K-Nearest Neighbors (KNN) Workshop**.  
-The workshop introduces students to data analysis, machine learning design patterns, and active learning practices through the implementation of the KNN algorithm.
-
-Students will explore multiple types of datasets (CSV files, APIs, relational databases), implement KNN classifiers, and design their code using the **Machine Learning Pipeline Pattern**. The workshop emphasizes collaboration through **peer programming** and reflection on algorithm performance.
+## 📘 Project Summary
+This project implements a **K-Nearest Neighbors (KNN)** algorithm to classify dermatoscopic images from the **DermMNIST (MedMNIST v3)** dataset. To overcome the limitations of raw pixel intensity in medical imaging, we utilized pre-trained **ResNet-18 (CNN)** to extract 512-dimensional feature embeddings. This allows the model to calculate diagnostic similarity based on high-level visual features rather than simple color values.
 
 ---
 
-## 🎯 Learning Objectives
-By completing this workshop, you will be able to:
-1. Understand the intuition behind the K-Nearest Neighbors algorithm.  
-2. Acquire, clean, and preprocess data from different sources.  
-3. Apply KNN for classification and evaluate its performance.  
-4. Architect code using the **Machine Learning Pipeline Pattern**.  
-5. Collaborate with peers through active learning and peer programming.  
-6. Reflect on the strengths, limitations, and real-world applications of KNN.  
+## 🚀 Key Technical Improvements
+In this final iteration, the team improved model reliability and clinical utility through advanced validation techniques:
+
+**Note on Evaluation Strategy :** While the initial plan focused on generating standard metrics (Confusion Matrix, Classification Report), I upgraded this phase to a Comparative Evaluation Framework. This involved moving from a single train/test split to 5-Fold Cross-Validation, allowing us to mathematically prove that our optimized $k=17$ parameter provides superior stability and clinical safety compared to the baseline.
+
+1. **Implementation of 5-Fold Cross-Validation:** We moved beyond a simple train/test split by implementing 5-fold cross-validation. This ensures that the chosen parameters are stable across different subsets of medical data, reducing the risk of "lucky" results.
+2. **Hyperparameter Optimization:** While initial tests suggested $k=19$, our rigorous cross-validation identified **$k=17$** as the optimal neighbor count for this specific feature space.
+3. **Performance Boost:** - **Overall Test Accuracy:** Improved from 71.52% to **72.12%**.
+   - **Macro F1-score:** Increased from 0.30 to **0.32**, confirming the model became more "comprehensive" and balanced across diverse lesion types.
+4. **Clinical Error Reduction:** Specifically for **Melanoma (Class 4)**—the most critical malignant lesion—the optimized model reduced the diagnostic error rate by **1.79%**.
 
 ---
 
-## 🤖 About the KNN Algorithm
-The **K-Nearest Neighbors algorithm** is a simple, non-parametric machine learning method used for classification and regression.  
-- A new data point is classified based on the **majority label of its *k* closest neighbors** in the training set.  
-- The choice of *k* and the method of measuring distance (e.g., Euclidean, Manhattan) heavily influence performance.  
-- KNN is **instance-based** (lazy learning): it stores the training data and makes predictions only at query time.  
+## 🏗️ Machine Learning Pipeline
+Our project follows a modular **ML Pipeline Architecture**:
+- **Data Acquisition:** Loading ResNet-18 feature embeddings (.npz files).
+- **Preprocessing:** Standardizing features using `StandardScaler` to ensure distance calculation fairness.
+- **Optimization:** Using 5-Fold CV to find the most robust *k* parameter for clinical stability.
+- **Evaluation:** Generating Confusion Matrices and **Per-Class Error Rates** (Method 2) to identify diagnostic "blind spots."
+- **Reflection:** Analyzing misclassification risks from a nursing and clinical perspective.
 
 ---
 
-## 🏗️ Implementation with ML Architecture and Design Patterns
-This workshop emphasizes implementing KNN using the **Machine Learning Pipeline Pattern**:
-- **Data Acquisition** (from CSV, API, or relational database)  
-- **Data Cleaning & Preprocessing** (scaling, encoding, handling missing values)  
-- **Feature Engineering**  
-- **Model Training** (KNN classifier)  
-- **Evaluation** (accuracy, confusion matrix, other metrics)  
-- **Reflection & Peer Comparison**  
+## 🩺 Reflection
 
-By structuring code into **modular components**, students will learn how to build reproducible and extensible ML workflows, aligning with professional MLOps practices.
+- The model performs exceptionally well on common benign cases (Class 5) but struggles with rare diseases. 
+- Although $k=17$ improved results, the error rate for malignant lesions remains a concern. In a clinical setting, a "False Negative" (missing a cancer case) can lead to delayed treatment and life-threatening consequences.
+- **Conclusion:** KNN with CNN embeddings is a powerful screening aid, but for final clinical decisions, future work must include "Class Weighting" to increase sensitivity toward rare but fatal conditions.
 
 ---
 
-## 📂 High-Level View of the Workshop
-The workshop is split across two sessions (two hours total), with homework in between:
-
-- **Session 1**  
-  - Introduction to KNN (theory and Iris dataset demo)  
-  - Hands-on: load and preprocess a dataset from a CSV, API, or relational DB  
-
-- **Homework**  
-  - Finalize preprocessing and prepare dataset for KNN  
-
-- **Session 2**  
-  - Implement KNN using the Pipeline Pattern  
-  - Train, evaluate, and visualize results  
-  - Reflect on algorithm performance  
-  - Compare results with peers and discuss strengths/weaknesses of KNN  
-
----
-
-## 📝 Deliverables
-- `KNN_Workshop_Solution.ipynb`: Your notebook implementation with code and explanations.  
-- `README.md`: This file, including your name, student ID, and a brief summary of your work.  
-- A PDF file with your name, student ID, and the URL to your remote repository.  
+## ✍️ Instructor Information
+- **Instructor:** David Espinosa
+- **Course:** Foundations of Machine Learning Frameworks
+- **Date:** February 2026
 
 
----
 ## 👥 Team Members & Contributions
 
 | Name | Student ID | Contribution |
 |------|-----------|-------------|
 | Liggia Elena Taboada Cruz | 9085905 | Data Acquisition, Cleaning & Preprocessing, Feature Engineering |
 | Emmanuel Ihejiamaizu | 9080005 | Model Training (KNN hyperparameter tuning, best k selection) |
-| Chao-Chung Liu | 9067679 | Evaluation (confusion matrix, classification report, per-class error) |
+| Chao-Chung Liu | 9067679 | 5-Fold Cross-Validation, k=17 Optimization, Comparative Error Analysis, and Clinical Reflection|
+
 ---
 
 ## ✍️ Instructor Information
