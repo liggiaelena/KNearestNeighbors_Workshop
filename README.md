@@ -40,7 +40,7 @@ Our project follows a modular **ML Pipeline Architecture**:
 ## ✍️ Instructor Information
 - **Instructor:** David Espinosa
 - **Course:** Foundations of Machine Learning Frameworks
-- **Date:** February 2026
+- **Date:** 13th February 2026
 
 
 ## 👥 Team Members & Contributions
